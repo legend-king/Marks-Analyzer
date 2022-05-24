@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang = "en" dir = "ltr">
+  <head>
+      <meta charset=" utf-8">
+    <title> Jaa na apna kaam kar </title>
+    {% load static %}
+    {% comment %} <link rel="stylesheet" href="{%static 'login.css'%}" type="text/css" media="screen" > {% endcomment %}
+  </head>
+  
+  <body>
+
+    <form method="POST" class="post-form" enctype="multipart/form-data">  
+        {% csrf_token %}  
+        {{ form.as_p }}  
+        <label for="name">Subject Name : </label><br>
+        <input type="text" id="subname" name="subname"><br><br>
+        <label for="name">Subject Code : </label><br>
+        <input type="text" id="subcode" name="subcode"><br><br>
+        <button type="submit" class="save btn btn-default">Save</button>  
+</form>  
+
+
+  </body>
+</html>
