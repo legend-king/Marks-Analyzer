@@ -1,0 +1,68 @@
+body
+{
+    background-color: cornflowerblue
+    ;
+}
+
+.hello1
+{
+    font-weight: 400;
+    font-style: inherit;
+}
+.hello5
+{
+    padding: 0cm;
+    padding-right: 0ex;
+    height: 30px;
+    width: 40%;
+    border-radius: 2px;
+    text-align: center;
+    justify-content: center;  
+    align-items: center; 
+    border-radius: 12px;
+    position: absolute;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+
+    
+
+}
+.hello4
+{
+    padding: 0cm;
+    width: 60%;
+    height: 30px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0ex;
+    padding-right: 0pc;
+    border-radius: 12px;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+    opacity: 1;
+    right: 0;
+    content: '\00bb';
+  
+}
+.hello3
+{
+    font-family:"Blippo", "fantasy" ;
+    font-style: initial;
+}
+    
+
+.hello2
+{
+    padding: 0cm;
+    width: 60%;
+    height: 30px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0ex;
+    padding-right: 0pc;
+    border-radius: 12px;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+ 
+
+
+}

@@ -4,20 +4,28 @@
       <meta charset=" utf-8">
     <title> Jaa na apna kaam kar </title>
     {% load static %}
-    {% comment %} <link rel="stylesheet" href="{%static 'login.css'%}" type="text/css" media="screen" > {% endcomment %}
+     <link rel="stylesheet" href="{%static 'style1.css'%}" type="text/css"  > 
+
+    
+  
+  
   </head>
+
+
   
   <body>
 
     <form method="POST" class="post-form" enctype="multipart/form-data">  
         {% csrf_token %}  
         {{ form.as_p }}  
-        <label for="name">Subject Name : </label><br>
-        <input type="text" id="subname" name="subname"><br><br>
-        <label for="name">Subject Code : </label><br>
-        <input type="text" id="subcode" name="subcode"><br><br>
-        <button type="submit" class="save btn btn-default">Save</button>  
+        <label for="name" class="hello1">Subject Name : </label><br>
+        <input class="hello2" type="text" id="subname" name="subname"><br><br>
+        <label class="hello3"for="name">Subject Code : </label><br>
+        <input class="hello4"type="text" id="subcode" name="subcode"><br><br>
+        <button class="hello5" type="submit" class="save btn btn-default">Save</button>  
 </form>  
+
+
 
 
   </body>

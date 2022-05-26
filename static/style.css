@@ -1,0 +1,132 @@
+body
+{
+    background-color: blueviolet;
+}
+
+.dog
+{
+    
+    font-weight: 400;
+    font-style: italic;
+
+}
+.dog1
+{
+    padding: 0cm;
+    padding-right: 0ex;
+    height: 30px;
+    width:50% ;
+
+    border-radius: 2px;
+    text-align: center;
+    justify-content: center;  
+    align-items: center; 
+    border-radius: 12px;
+    margin: 10 10;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.dog2
+{
+    padding: 0cm;
+    padding-right: 0ex;
+    height: 30px;
+    width:50% ;
+
+    border-radius: 2px;
+    text-align: center;
+    justify-content: center;  
+    align-items: center; 
+    border-radius: 12px;
+    margin: 10 10;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+}
+
+.dog3
+{
+    padding: 0cm;
+    padding-right: 0ex;
+    height: 30px;
+    width:50% ;
+
+    border-radius: 2px;
+    text-align: center;
+    justify-content: center;  
+    align-items: center; 
+    border-radius: 12px;
+    margin: 10 10;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+}
+.dog4
+{
+    padding: 0cm;
+    padding-right: 0ex;
+    height: 30px;
+    width:50% ;
+    border-radius: 2px;
+    text-align: center;
+    justify-content: center;  
+    align-items: center; 
+    border-radius: 12px;
+    margin: 10 10;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+
+}
+
+.dog5
+{
+    padding: 0cm;
+    padding-right: 0ex;
+    height: 30px;
+   width: 30%;
+    border-radius: 2px;
+    text-align: center;
+    justify-content: center;  
+    align-items: center; 
+    border-radius: 12px;
+    margin: 10 10;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+}
+
+.text1
+{
+    font-style: italic;
+}
+.text2
+{
+    font-style: italic;
+
+}
+.text3
+{
+    font-style: italic;
+
+}
+
+.text4
+{
+    font-style: italic;
+
+}
+.cool1
+{
+    font-style: italic;
+
+}
+.cool2
+{
+    font-style: italic;
+
+}
+.cool3
+{
+    font-style: italic;
+
+}

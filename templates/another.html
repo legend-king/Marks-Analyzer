@@ -4,16 +4,16 @@
       <meta charset=" utf-8">
     <title>Jaa na apna kaam kar</title>
     {% load static %}
-    {% comment %} <link rel="stylesheet" href="{%static 'login.css'%}" type="text/css" media="screen" > {% endcomment %}
+    <link rel="stylesheet" href="{%static 'style.css'%}" type="text/css" media="screen" >
   </head>
   
   <body>
-    <form method="POST" >
+    <form class="container " method="POST" >
       {% csrf_token %}
       <br>
-      <label for="threshold">Select the threshold value </label><br>
-        <select name="threshold" id="threshold">
-          <option value="">Select one of the option</option> 
+      <label class="dog"for="threshold">Select the threshold value </label><br>
+        <select class="dog1" name="threshold" id="threshold">
+          <option class="text1" value="">Select one of the option</option> 
             <option value="10" {% if th == 10 %} selected="selected" {% endif %} >10</option>
           <option value="20" {% if th == 20 %} selected="selected" {% endif %}>20</option>
           <option value="30" {% if th == 30 %} selected="selected" {% endif %}>30</option>
@@ -26,9 +26,9 @@
           <option value="100" {% if th == 100 %} selected="selected" {% endif %} >100</option>
         </select><br><br>
 
-        <label for="min3">Minimum attainment for 3</label><br>
-        <select name="min3" id="min3">
-          <option value="">Select one of the option</option> 
+        <label class="cool1" for="min3">Minimum attainment for 3</label><br>
+        <select class ="dog2"name="min3" id="min3">
+          <option class="text2"value="">Select one of the option</option> 
             <option value="0.1"  {% if min3 == 0.1 %} selected="selected" {% endif %}>0.1</option>
           <option value="0.2" {% if min3 == 0.2 %} selected="selected" {% endif %}>0.2</option>
           <option value="0.3" {% if min3 == 0.3 %} selected="selected" {% endif %}>0.3</option>
@@ -41,9 +41,9 @@
           <option value="1.0" {% if min3 == 1.0 %} selected="selected" {% endif %}>1.0</option>
         </select><br><br>
       
-        <label for="min2">Minimum attainment for 2</label><br>
-        <select name="min2" id="min2">
-          <option value="">Select one of the option</option> 
+        <label class="cool2" for="min2">Minimum attainment for 2</label><br>
+        <select class ="dog3"name="min2" id="min2">
+          <option class="text3"value="">Select one of the option</option> 
           <option value="0.1"  {% if min2 == 0.1 %} selected="selected" {% endif %}>0.1</option>
           <option value="0.2" {% if min2 == 0.2 %} selected="selected" {% endif %}>0.2</option>
           <option value="0.3" {% if min2 == 0.3 %} selected="selected" {% endif %}>0.3</option>
@@ -56,9 +56,9 @@
           <option value="1.0" {% if min2 == 1.0 %} selected="selected" {% endif %}>1.0</option>
         </select><br><br>
 
-        <label for="min1">Minimum attainment for 1</label><br>
-        <select name="min1" id="min1">
-          <option value="">Select one of the option</option> 
+        <label class="cool3" for="min1">Minimum attainment for 1</label><br>
+        <select class="dog4" name="min1" id="min1">
+          <option class="text4" value="">Select one of the option</option> 
           <option value="0.1"  {% if min1 == 0.1 %} selected="selected" {% endif %}>0.1</option>
           <option value="0.2" {% if min1 == 0.2 %} selected="selected" {% endif %}>0.2</option>
           <option value="0.3" {% if min1 == 0.3 %} selected="selected" {% endif %}>0.3</option>
@@ -70,10 +70,9 @@
           <option value="0.9" {% if min1 == 0.9 %} selected="selected" {% endif %} >0.9</option>
           <option value="1.0" {% if min1 == 1.0 %} selected="selected" {% endif %}>1.0</option>
         </select><br><br>
-      <button type="submit" name="thresholdsubmit">Apply threshold</button>
+      <button class="dog5"type="submit" name="thresholdsubmit">Apply threshold</button>
     </form>
     <br><br>
-    Threshold Value : {{th}}  {{min3}} {{min2}} {{min1}}
     <br><br><br>
     {{data1 | safe}}
     <br><br><br>
