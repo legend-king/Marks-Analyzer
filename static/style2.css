@@ -1,0 +1,58 @@
+body{
+    background-color: #EEF3D2;
+    /* padding: 10% 5%; */
+}
+
+.main-container{
+    /* text-align: center; */
+    font-weight: 600;
+    font-family: Montserrat;
+    font-size: 2.5rem;
+    color: #6A67CE;
+    padding: 2.5%;
+}  
+
+.hello5{
+    margin: 2rem 0;
+}
+
+.container{
+    flex-direction: row;
+    display: flex;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: 600;
+    font-family: Montserrat;
+    font-size: 1.5rem;
+    color: #6A67CE;
+    padding: 2.5%;
+}
+
+.tableitem{
+    font-family: Montserrat;
+    font-size: 1.5rem;
+    color: #000;
+}
+
+table{
+    background-color: antiquewhite;
+    width: 100%;
+    padding: 2.5%;
+    padding: 2.5%;
+    border: 0;
+
+}
+
+th{
+    height: 20%;
+    color: #6A67CE;
+    text-align: left;
+}
+
+td{
+    text-align: left;
+}
+
+.dog5{
+    margin: 1rem;
+}

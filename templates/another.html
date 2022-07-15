@@ -1,82 +1,118 @@
-<!DOCTYPE html>
-<html lang = "en" dir = "ltr">
-  <head>
-      <meta charset=" utf-8">
-    <title>Jaa na apna kaam kar</title>
-    {% load static %}
-    <link rel="stylesheet" href="{%static 'style.css'%}" type="text/css" media="screen" >
-  </head>
-  
-  <body>
-    <form class="container " method="POST" >
-      {% csrf_token %}
-      <br>
-      <label class="dog"for="threshold">Select the threshold value </label><br>
-        <select class="dog1" name="threshold" id="threshold">
-          <option class="text1" value="">Select one of the option</option> 
-            <option value="10" {% if th == 10 %} selected="selected" {% endif %} >10</option>
-          <option value="20" {% if th == 20 %} selected="selected" {% endif %}>20</option>
-          <option value="30" {% if th == 30 %} selected="selected" {% endif %}>30</option>
-          <option value="40"{% if th == 40 %} selected="selected" {% endif %} >40</option>
-          <option value="50" {% if th == 50 %} selected="selected" {% endif %} >50</option>
-          <option value="60" {% if th == 60 %} selected="selected" {% endif %} >60</option>
-          <option value="70" {% if th == 70 %} selected="selected" {% endif %} >70</option>
-          <option value="80"{% if th == 80 %} selected="selected" {% endif %} >80</option>
-          <option value="90" {% if th == 90 %} selected="selected" {% endif %} >90</option>
-          <option value="100" {% if th == 100 %} selected="selected" {% endif %} >100</option>
-        </select><br><br>
 
-        <label class="cool1" for="min3">Minimum attainment for 3</label><br>
-        <select class ="dog2"name="min3" id="min3">
-          <option class="text2"value="">Select one of the option</option> 
-            <option value="0.1"  {% if min3 == 0.1 %} selected="selected" {% endif %}>0.1</option>
-          <option value="0.2" {% if min3 == 0.2 %} selected="selected" {% endif %}>0.2</option>
-          <option value="0.3" {% if min3 == 0.3 %} selected="selected" {% endif %}>0.3</option>
-          <option value="0.4"{% if min3 == 0.4 %} selected="selected" {% endif %}>0.4</option>
-          <option value="0.5"  {% if min3 == 0.5 %} selected="selected" {% endif %}>0.5</option>
-          <option value="0.6" {% if min3 == 0.6 %} selected="selected" {% endif %}>0.6</option>
-          <option value="0.7" {% if min3 == 0.7 %} selected="selected" {% endif %}>0.7</option>
-          <option value="0.8" {% if min3 == 0.8 %} selected="selected" {% endif %}>0.8</option>
-          <option value="0.9" {% if min3 == 0.9 %} selected="selected" {% endif %} >0.9</option>
-          <option value="1.0" {% if min3 == 1.0 %} selected="selected" {% endif %}>1.0</option>
-        </select><br><br>
-      
-        <label class="cool2" for="min2">Minimum attainment for 2</label><br>
+  
+    {% load static %} {% comment %} stylesheet and bootstrap {% endcomment %}
+
+    
+    {% comment %} fonts  {% endcomment %}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+    crossorigin="anonymous"
+  />
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"
+  ></script>
+  <link
+  rel="stylesheet"
+  href="{%static 'style2.css'%}"
+  type="text/css"
+  media="screen"
+/>
+      <form class="container" hx-post="{% url 'start' %}" hx-target="#marks" >
+        {% csrf_token %}
+        <br>
+        <div class = "row">
+        <div class ="col-lg-3">
+          <label class="dog"for="threshold">Select the threshold value </label><br>
+          <select class="dog1" name="threshold" id="threshold">
+            {% comment %} <option class="text1" value="">Select one of the option</option>  {% endcomment %}
+            <option value="10" {% if th == 10 %} selected="selected" {% endif %}>10</option>
+            <option value="20" {% if th == 20 %} selected="selected" {% endif %}>20</option>
+            <option value="30" {% if th == 30 %} selected="selected" {% endif %}>30</option>
+            <option value="40" {% if th == 40 %} selected="selected" {% endif %}>40</option>
+            <option value="50" {% if th == 50 %} selected="selected" {% endif %}>50</option>
+            <option value="60" {% if th == 60 %} selected="selected" {% endif %}>60</option>
+            <option value="70" {% if th == 70 %} selected="selected" {% endif %}>70</option>
+            <option value="80" {% if th == 80 %} selected="selected" {% endif %}>80</option>
+            <option value="90" {% if th == 90 %} selected="selected" {% endif %}>90</option>
+            <option value="100" {% if th == 100 %} selected="selected" {% endif %}>100</option>
+          </select>
+        </div>
+        <div class ="col-lg-3">
+          
+          <label class="cool1" for="min3">Minimum attainment for 3</label><br>
+          <select class ="dog2"name="min3" id="min3">
+            {% comment %} <option class="text2"value="">Select one of the option</option>  {% endcomment %}
+            <option value="0.1" {% if min3 == 0.1 %} selected="selected" {% endif %}>0.1</option>
+            <option value="0.2" {% if min3 == 0.2 %} selected="selected" {% endif %}>0.2</option>
+            <option value="0.3" {% if min3 == 0.3 %} selected="selected" {% endif %}>0.3</option>
+            <option value="0.4" {% if min3 == 0.4 %} selected="selected" {% endif %}>0.4</option>
+            <option value="0.5" {% if min3 == 0.5 %} selected="selected" {% endif %}>0.5</option>
+            <option value="0.6" {% if min3 == 0.6 %} selected="selected" {% endif %}>0.6</option>
+            <option value="0.7" {% if min3 == 0.7 %} selected="selected" {% endif %}>0.7</option>
+            <option value="0.8" {% if min3 == 0.8 %} selected="selected" {% endif %}>0.8</option>
+            <option value="0.9" {% if min3 == 0.9 %} selected="selected" {% endif %}>0.9</option>
+            <option value="1.0" {% if min3 == 1.0 %} selected="selected" {% endif %}>1.0</option>
+          </select>
+        </div>
+        <div class ="col-lg-3">
+          
+          <label class="cool2" for="min2">Minimum attainment for 2</label><br>
         <select class ="dog3"name="min2" id="min2">
-          <option class="text3"value="">Select one of the option</option> 
-          <option value="0.1"  {% if min2 == 0.1 %} selected="selected" {% endif %}>0.1</option>
+          {% comment %} <option class="text3"value="">Select one of the option</option>  {% endcomment %}
+          <option value="0.1" {% if min2 == 0.1 %} selected="selected" {% endif %}>0.1</option>
           <option value="0.2" {% if min2 == 0.2 %} selected="selected" {% endif %}>0.2</option>
           <option value="0.3" {% if min2 == 0.3 %} selected="selected" {% endif %}>0.3</option>
-          <option value="0.4"{% if min2 == 0.4 %} selected="selected" {% endif %}>0.4</option>
-          <option value="0.5"  {% if min2 == 0.5 %} selected="selected" {% endif %}>0.5</option>
+          <option value="0.4" {% if min2 == 0.4 %} selected="selected" {% endif %}>0.4</option>
+          <option value="0.5" {% if min2 == 0.5 %} selected="selected" {% endif %}>0.5</option>
           <option value="0.6" {% if min2 == 0.6 %} selected="selected" {% endif %}>0.6</option>
           <option value="0.7" {% if min2 == 0.7 %} selected="selected" {% endif %}>0.7</option>
           <option value="0.8" {% if min2 == 0.8 %} selected="selected" {% endif %}>0.8</option>
-          <option value="0.9" {% if min2 == 0.9 %} selected="selected" {% endif %} >0.9</option>
+          <option value="0.9" {% if min2 == 0.9 %} selected="selected" {% endif %}>0.9</option>
           <option value="1.0" {% if min2 == 1.0 %} selected="selected" {% endif %}>1.0</option>
-        </select><br><br>
-
+        </select>
+      </div>
+      <div class ="col-lg-3">
+        
         <label class="cool3" for="min1">Minimum attainment for 1</label><br>
         <select class="dog4" name="min1" id="min1">
-          <option class="text4" value="">Select one of the option</option> 
-          <option value="0.1"  {% if min1 == 0.1 %} selected="selected" {% endif %}>0.1</option>
+          {% comment %} <option class="text4" value="">Select one of the option</option>  {% endcomment %}
+          <option value="0.1" {% if min1 == 0.1 %} selected="selected" {% endif %}>0.1</option>
           <option value="0.2" {% if min1 == 0.2 %} selected="selected" {% endif %}>0.2</option>
           <option value="0.3" {% if min1 == 0.3 %} selected="selected" {% endif %}>0.3</option>
-          <option value="0.4"{% if min1 == 0.4 %} selected="selected" {% endif %}>0.4</option>
-          <option value="0.5"  {% if min1 == 0.5 %} selected="selected" {% endif %}>0.5</option>
+          <option value="0.4" {% if min1 == 0.4 %} selected="selected" {% endif %}>0.4</option>
+          <option value="0.5" {% if min1 == 0.5 %} selected="selected" {% endif %}>0.5</option>
           <option value="0.6" {% if min1 == 0.6 %} selected="selected" {% endif %}>0.6</option>
           <option value="0.7" {% if min1 == 0.7 %} selected="selected" {% endif %}>0.7</option>
           <option value="0.8" {% if min1 == 0.8 %} selected="selected" {% endif %}>0.8</option>
-          <option value="0.9" {% if min1 == 0.9 %} selected="selected" {% endif %} >0.9</option>
+          <option value="0.9" {% if min1 == 0.9 %} selected="selected" {% endif %}>0.9</option>
           <option value="1.0" {% if min1 == 1.0 %} selected="selected" {% endif %}>1.0</option>
-        </select><br><br>
-      <button class="dog5"type="submit" name="thresholdsubmit">Apply threshold</button>
-    </form>
-    <br><br>
-    <br><br><br>
-    {{data1 | safe}}
-    <br><br><br>
-    {{data | safe}}
-
-  </body>
-</html>
+        </select>
+      </div>
+      <button class="dog5" type="submit" name="thresholdsubmit">Apply threshold</button>
+    </div>
+    <br>
+        
+      </form>
+      <div class="container">
+      <a href="/download-attainment"><button class="dog5" name="download">Download Attainment</button></a>
+      <a href="/download-marks"><button class="dog5" name="download">Download Marks</button></a>
+      </div>
+      
+    <div class = "tableitem">
+      {{data1 | safe}}
+    </div>
+    <br>
+    <div class = "tableitem">
+      {{data | safe}}
+    </div>
