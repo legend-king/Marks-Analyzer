@@ -38,6 +38,20 @@
     <div class="main-container">
       <form method="POST" class="post-form" enctype="multipart/form-data">
         {% csrf_token %} {{ form.as_p }}
+        <label for="batch" class="hello1">Batch : </label><br/>
+        <input
+          class="hello2 field"
+          type="text"
+          id="batch"
+          name="batch"
+          /><br />
+          <label class="hello3 " for="semester">Semester : </label><br />
+          <input
+          class="hello4 field"
+          type="text"
+          id="semester"
+          name="semester"
+        /><br />
         <label for="name" class="hello1">Subject Name : </label><br/>
         <input
           class="hello2 field"

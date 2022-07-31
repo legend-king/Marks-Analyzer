@@ -5,16 +5,27 @@ from marks.data import getData
 from marks.functions import handle_uploaded_file
 from wsgiref.util import FileWrapper
 import mimetypes
+import pandas as pd
 import os
+import xlsxwriter
 
 temp=None
 temp1=None
 th, min1, min2, min3 = 60, 0.8, 0.7, 0.6
 x=None
+subname = None
+subcode = None
+batch = None
+semester = None
 # Create your views here.
 def index(request):
+    global subname, subcode, batch, semester
     if request.method == 'POST':  
-        student = StudentForm(request.POST, request.FILES)  
+        student = StudentForm(request.POST, request.FILES) 
+        subname = request.POST.get("subname") 
+        subcode = request.POST.get("subcode")
+        batch = request.POST.get("batch")
+        semester = request.POST.get("semester")
         if student.is_valid():
             global temp, temp1,x, th, min1, min2, min3
             handle_uploaded_file(request.FILES['file'])
@@ -32,11 +43,11 @@ def index(request):
         else:
             th=60
         min3=float(min3)
-        if float(min2)>float(min3):
+        if float(min2)>=float(min3):
             min2=round(min3-0.1,1)
         else:
             min2=float(min2)
-        if float(min1)>float(min2):
+        if float(min1)>=float(min2):
             min1=round(min2-0.1,1)
         else:
             min1=float(min1)
@@ -60,7 +71,13 @@ def downloadAttainment(request):
         base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         filename="Attainment.xlsx"
         filepath = base_dir+'/Files/'+filename
-        temp1.to_excel(filepath)
+        writer = pd.ExcelWriter(filepath)
+        temp1.to_excel(writer, startcol = 0, startrow = 3)
+
+        worksheet = writer.sheets['Sheet1']
+        worksheet.write(0, 0, "Batch "+batch + ", Semester - " + semester + ", Subject Name: " + subname +", Subject Code : "+subcode)
+
+        writer.save()
         thefile=filepath
         filename=os.path.basename(thefile)
         chunk_size = 8192
@@ -76,7 +93,17 @@ def downloadMarks(request):
         base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         filename="Marks.xlsx"
         filepath = base_dir+'/Files/'+filename
-        temp.to_excel(filepath)
+        writer = pd.ExcelWriter(filepath)
+        workbook = xlsxwriter.Workbook(filepath)
+        format = workbook.add_format()
+        format.set_bold()
+        format.set_font_size(14)
+        temp.to_excel(writer, startcol = 0, startrow = 3)
+
+        worksheet = writer.sheets['Sheet1']
+        worksheet.write(0, 0, "Batch "+batch + ", Semester - " + semester + ", Subject Name: " + subname +", Subject Code : "+subcode)
+
+        writer.save()
         thefile=filepath
         filename=os.path.basename(thefile)
         chunk_size = 8192
