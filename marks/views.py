@@ -7,32 +7,42 @@ from wsgiref.util import FileWrapper
 import mimetypes
 import pandas as pd
 import os
+import json
 import xlsxwriter
 
 temp=None
 temp1=None
 th, min1, min2, min3 = 60, 0.8, 0.7, 0.6
 x=None
-subname = None
-subcode = None
-batch = None
-semester = None
+subname = ""
+subcode =""
+batch =""
+semester = ""
+text=""
 # Create your views here.
 def index(request):
-    global subname, subcode, batch, semester
+    global subname, subcode, batch, semester, text
     if request.method == 'POST':  
         student = StudentForm(request.POST, request.FILES) 
-        subname = request.POST.get("subname") 
-        subcode = request.POST.get("subcode")
-        batch = request.POST.get("batch")
-        semester = request.POST.get("semester")
+        if request.POST.get("subname"):
+            subname = request.POST.get("subname") 
+            subcode = request.POST.get("subcode")
+            batch = request.POST.get("batch")
+            semester = request.POST.get("semester")
+        text = "Batch : "+ batch +" Semester : " + semester + " Subject Name : "+ subname +" Subject Code : "+subcode
         if student.is_valid():
             global temp, temp1,x, th, min1, min2, min3
             handle_uploaded_file(request.FILES['file'])
             name1 = request.FILES['file']
             x=name1
             temp, temp1 = getData("static/upload/"+name1.name)
-            context={'data':temp.to_html(), 'data1':temp1.to_html, 'th':60, 'min3':0.8, 'min2':0.7, 'min1':0.6}
+            json_records = temp.reset_index().to_json(orient ='records')
+            data = []
+            data = json.loads(json_records)
+            json_records = temp1.reset_index().to_json(orient ='records')
+            data1 = []
+            data1 = json.loads(json_records)
+            context={'data':data, 'data1':data1, 'th':60, 'min3':0.8, 'min2':0.7, 'min1':0.6, 'text':text}
             return render(request, "form.html", context)
         th = request.POST.get("threshold")
         min3 = request.POST.get("min3")
@@ -52,7 +62,13 @@ def index(request):
         else:
             min1=float(min1)
         temp, temp1 = getData("static/upload/"+x.name, th, min3, min2, min1)
-        context={'data':temp.to_html(), 'data1':temp1.to_html, 'th':th, 'min3':min3, 'min2':min2, 'min1':min1}
+        json_records = temp.reset_index().to_json(orient ='records')
+        data = []
+        data = json.loads(json_records)
+        json_records = temp1.reset_index().to_json(orient ='records')
+        data1 = []
+        data1 = json.loads(json_records)
+        context={'data':data, 'data1':data1, 'th':th, 'min3':min3, 'min2':min2, 'min1':min1, 'text':text}
         return render(request, "form.html", context)
     # if request.method=='POST' and 'download' in request.POST:
     #     temp1.to_excel("Attainment.xlsx")

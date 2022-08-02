@@ -22,12 +22,16 @@
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"
   ></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <link
   rel="stylesheet"
-  href="{%static 'style2.css'%}"
+  href="{%static 'style3.css'%}"
   type="text/css"
   media="screen"
-/>
+/> 
       <form class="container" hx-post="{% url 'start' %}" hx-target="#marks" >
         {% csrf_token %}
         <br>
@@ -108,11 +112,97 @@
       <a href="/download-attainment"><button class="dog5" name="download">Download Attainment</button></a>
       <a href="/download-marks"><button class="dog5" name="download">Download Marks</button></a>
       </div>
+
+      <button onclick="window.print()">Print this page</button>
       
-    <div class = "tableitem">
+    {% comment %} <div class = "tableitem">
       {{data1 | safe}}
-    </div>
+    </div> {% endcomment %}
     <br>
-    <div class = "tableitem">
+    {% comment %} <div class = "tableitem">
       {{data | safe}}
+    </div> {% endcomment %}
+
+    <div class="">
+      <h2 class="text-center"><u>Attainment</u></h2><br> 
+      <div class="text-center">
+        <img  src="static/logo.png" max-width=100% height=auto>
+        </div>
+      <h3 class="text-center">{{text}}</h3><br> 
+    </div>
+    <div>           
+      <table class="table">
+        <thead bgcolor="blue">
+          <tr>
+            <th>Unit</th>
+            <th>Cat_Attainment</th>
+            <th>ES_Attainment</th>
+            <th>Total_Attainment</th>
+            <th>Attainment_Score</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% if data1 %}  
+        {% for i in data1 %}
+          <tr>
+            <td>{{i.Unit}}</td>
+            <td>{{i.Cat_Attainment}}</td>
+            <td>{{i.ES_Attainment}}</td>
+            <td>{{i.Total_Attainment}}</td>
+            <td>{{i.Attainment_Score}}</td>
+          </tr>
+        {% endfor %}
+        {% endif %}
+        </tbody>
+      </table>
+    </div>
+
+    <br>
+
+    
+    <div class="">
+      <h2 class="text-center"><u>Marks</u></h2><br> 
+      <div class="text-center">
+      <img  src="static/logo.png" max-width=100% height=auto>
+      </div>
+      <h3 class="text-center">{{text}}</h3><br> 
+    </div>
+    <div>           
+      <table class="table">
+        <thead bgcolor="blue">
+          <tr>
+            <th>Reg no </th>
+            <th>CO1_CAT</th>
+            <th>CO2_CAT</th>
+            <th>CO3_CAT</th>
+            <th>CO4_CAT</th>
+            <th>CO5_CAT</th>
+            <th>CO1_ES</th>
+            <th>CO2_ES</th>
+            <th>CO3_ES</th>
+            <th>CO4_ES</th>
+            <th>CO5_ES</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+        {% if data %}  
+        {% for i in data %}
+          <tr>
+            <td>{{i.Regno}}</td>
+            <td>{{i.CO1_CAT}}</td>
+            <td>{{i.CO2_CAT}}</td>
+            <td>{{i.CO3_CAT}}</td>
+            <td>{{i.CO4_CAT}}</td>
+            <td>{{i.CO5_CAT}}</td>
+            <td>{{i.CO1_ES}}</td>
+            <td>{{i.CO2_ES}}</td>
+            <td>{{i.CO3_ES}}</td>
+            <td>{{i.CO4_ES}}</td>
+            <td>{{i.CO5_ES}}</td>
+          </tr>
+        {% endfor %}
+        {% endif %}
+        </tbody>
+      </table>
     </div>
